@@ -5,7 +5,6 @@ let uglify          = require('gulp-uglify');
 let concat          = require('gulp-concat');
 let del             = require('del');
 let autoprefixer    = require('gulp-autoprefixer');
-//let cssnano         = require ("gulp-cssnano");
 
 gulp.task('clean', async function () {
     del.sync('dist')
@@ -15,7 +14,7 @@ gulp.task('scss', function (){
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass({outputStyle: 'expanded'}))
         .pipe(autoprefixer([
-            'last 8 versions',
+            'last 5 versions',
             '> 1%',
             'ie 8',
             'ie 7'
