@@ -13,7 +13,7 @@ gulp.task('clean', async function () {
 
 gulp.task('scss', function (){
     return gulp.src('app/scss/**/*.scss')
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({outputStyle: 'expanded'}))
         .pipe(autoprefixer([
             'last 8 versions',
             '> 1%',
@@ -21,12 +21,6 @@ gulp.task('scss', function (){
             'ie 7'
         ],
             { cascade: true }))
-        /*.pipe(cssnano({
-            zindex: false,
-            discardComments: {
-                removeAll: true
-            }
-        }))*/
         .pipe(gulp.dest('app/css'))
         .pipe(browserSync.reload({stream: true}))
 });
