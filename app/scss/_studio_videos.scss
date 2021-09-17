@@ -1,0 +1,6 @@
+section.videos {
+	display: block;
+	margin-top: 3rem;
+								/*** ONE ITEM ***/
+	@extend %single_video_item;
+}
