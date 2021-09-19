@@ -5,8 +5,8 @@ jQuery(function ($) {
 /************************************* PLANETS  *************************************/
 /************************************************************************************/
 
-// Appearance Transforming planets, during Scroll
-    const planetsContent = $('.transforming_planets_content');
+    // Appearance Transforming planets, during Scroll
+    const planetsContent = $('.moving_planets_content');
     // Moving planets is available only if screen-size is < 768px and central-planet is Invisible
     const studioPlanetsMediaQuery = window.matchMedia('(min-width: 768px)');
     const centerIsInvisible = $('#content_spheres').offset().top > document.documentElement.clientHeight; // true, if offset.top of central-planet is more than viewport.height of browser window
@@ -14,6 +14,7 @@ jQuery(function ($) {
     if (studioPlanetsMediaQuery.matches && centerIsInvisible) {
         planetsContent.removeClass('running');
         $(window).scroll(function () {
+            console.log($(this).scrollTop());
             if ($(this).scrollTop() > 200) {
                 planetsContent.addClass('running');
             }
