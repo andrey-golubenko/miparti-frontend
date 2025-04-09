@@ -67,24 +67,25 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('export', function () {
-    let buildHtml = gulp.src('app/*.html')
-        .pipe(gulp.dest('dist'));
+    return Promise.all([
+        gulp.src('app/*.html')
+            .pipe(gulp.dest('dist')),
 
-    let buildCss = gulp.src('app/css/**/*.css')
-        .pipe(gulp.dest('dist/css'));
+        gulp.src('app/css/**/*.css')
+            .pipe(gulp.dest('dist/css')),
 
-    let buildJs = gulp.src('app/js/**/*.js')
-        .pipe(gulp.dest('dist/js'));
+        gulp.src('app/js/**/*.js')
+            .pipe(gulp.dest('dist/js')),
 
-    let buildFonts = gulp.src('app/fonts/**/*.*')
-        .pipe(gulp.dest('dist/fonts'));
+        gulp.src('app/fonts/**/*.*')
+            .pipe(gulp.dest('dist/fonts')),
 
-    let buildImg = gulp.src('app/img/**/*.*')
-        .pipe(gulp.dest('dist/img'));
+        gulp.src('app/img/**/*.*')
+            .pipe(gulp.dest('dist/img')),
 
-    let buildContImg = gulp.src('app/countries_images/**/*.*')
-        .pipe(gulp.dest('dist/countries_images'))
-
+        gulp.src('app/countries_images/**/*.*')
+            .pipe(gulp.dest('dist/countries_images'))
+    ]);
 });
 
 gulp.task('build', gulp.series('clean', 'export'));
