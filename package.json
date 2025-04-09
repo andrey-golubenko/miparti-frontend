@@ -10,15 +10,16 @@
   "author": "Andrey Golubenko",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^3.0.4",
     "del": "^5.1.0",
     "gh-pages": "^6.1.1",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
-    "gulp-sass": "^4.1.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.72.0"
   },
   "dependencies": {
     "magnific-popup": "^1.1.0",
