@@ -5,6 +5,7 @@ let uglify          = require('gulp-uglify');
 let concat          = require('gulp-concat');
 let del             = require('del');
 let autoprefixer    = require('gulp-autoprefixer');
+let replace         = require('gulp-replace');
 
 gulp.task('clean', async function () {
     del.sync('dist')
@@ -59,31 +60,41 @@ gulp.task('js', function () {
 });
 
 gulp.task('browser-sync', function() {
-    browserSync.init({
+    browserSync({
         server: {
-            baseDir: "app/"
-        }
+            baseDir: 'dist'
+        },
+        ghostMode: false,
+        notify: false,
+        middleware: [
+            function(req, res, next) {
+                res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+                res.setHeader('Pragma', 'no-cache');
+                res.setHeader('Expires', '0');
+                next();
+            }
+        ]
     });
 });
 
 gulp.task('export', function () {
     return Promise.all([
-        gulp.src('app/*.html')
+        gulp.src('app/**/*.html', { buffer: true })
             .pipe(gulp.dest('dist')),
 
-        gulp.src('app/css/**/*.css')
+        gulp.src('app/css/**/*.css', { buffer: true })
             .pipe(gulp.dest('dist/css')),
 
-        gulp.src('app/js/**/*.js')
+        gulp.src('app/js/**/*.js', { buffer: true })
             .pipe(gulp.dest('dist/js')),
 
-        gulp.src('app/fonts/**/*.*')
+        gulp.src('app/fonts/**/*.*', { buffer: true })
             .pipe(gulp.dest('dist/fonts')),
 
-        gulp.src('app/img/**/*.*')
+        gulp.src('app/img/**/*.*', { buffer: true })
             .pipe(gulp.dest('dist/img')),
 
-        gulp.src('app/countries_images/**/*.*')
+        gulp.src('app/countries_images/**/*.*', { buffer: true })
             .pipe(gulp.dest('dist/countries_images'))
     ]);
 });

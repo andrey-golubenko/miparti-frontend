@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Miparti site",
   "main": "index.js",
-  "homepage": "https://andrey-golubenko.github.io/miparti",
+  "homepage": "https://andrey-golubenko.github.io/miparti-frontend",
   "scripts": {
     "deploy": "gh-pages -d dist"
   },
   "author": "Andrey Golubenko",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "browser-sync": "^3.0.4",
     "del": "^5.1.0",
@@ -17,6 +17,7 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.3",
+    "gulp-replace": "^1.1.4",
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.72.0"

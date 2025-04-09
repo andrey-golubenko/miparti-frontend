@@ -10,7 +10,7 @@
 
 Explore the live demo of Miparti Frontend to experience its features firsthand:
 
-- **Live Demo**: [miparti](https://andrey-golubenko.github.io/miparti/)
+- **Live Demo**: [miparti](https://andrey-golubenko.github.io/miparti-frontend)
 
 ## 🚀 Features
 
